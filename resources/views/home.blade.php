@@ -29,7 +29,7 @@
         {{-- @include('partials._product-multiple') --}}
         @include('partials._visi')
 
-        <div id="product" class="bg-white pt-16 pb-16 sm:pb-">
+        <div id="product" class="bg-white pt-16 pb-16 sm:pb-32">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
             <div class="relative px-4">
@@ -127,7 +127,8 @@
 
         {{-- @include('partials._people', ['people' => $peoples]) --}}
         @include('partials._nilai_utama', ['nilais' => $nilais])
-        @include('partials._focus', ['focuses' => $focuses])
+        {{-- @include('partials._focus', ['focuses' => $focuses]) --}}
         @include('partials._portfolios', ['portfolios' => $portfolios])
         @include('partials._partner', ['partnerships' => $partnerships])
+        @include('partials._maps')
 </x-layout>

@@ -1,9 +1,7 @@
-<div id="nilai" class="bg-white py-12 sm:py-16">
+<div id="nilai" class="bg-white py-24 sm:py-16 mb-16">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <div class="relative mb-16 px-4">
-            <h2 class="text-3xl font-bold pb-3 text-red-600 text-center">Nilai Utama.</h2>
-            <div class="absolute bottom-1 left-0 w-full h-px bg-red-600"></div>
-            <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1/3 h-1.5 bg-red-600"></div>
+        <div class="relative py-8 px-4">
+            <h2 class="text-5xl font-bold pb-3 text-red-600 text-center">Nilai Utama.</h2>
         </div>
 
         <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
