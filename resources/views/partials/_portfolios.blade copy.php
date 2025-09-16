@@ -1,4 +1,4 @@
-<section id="portfolio" class="bg-red-700 text-white px-4">
+<section id="portfolio" class="bg-blue-900 text-white px-4">
     <div  class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -13,7 +13,7 @@
                     <div class="absolute bottom-0 left-0 w-1/3 h-1.5 bg-white"></div>
 
                 </div>     
-                <p class="text-white leading-relaxed mt-4 text-justify">
+                <p class="text-gray-300 leading-relaxed mt-4 text-justify">
                     We have been actively engaged in technological innovation in order to become a focal point for the development and dissemination of artificial intelligence and digital technology in Indonesia.
                 </p>
             </div>
@@ -26,7 +26,7 @@
                 
                 <div class="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/80 to-transparent"></div>
                 
-                <div class="absolute bottom-0 left-0 p-1 bg-gray-400/50 w-full">
+                <div class="absolute bottom-0 left-0 p-2 bg-blue-600/30 w-full">
                     <h3 class="text-white font-semibold uppercase tracking-wider text-sm px-6 py-2">{{ $portfolio->title}}</h3>
                 </div>
             </div>

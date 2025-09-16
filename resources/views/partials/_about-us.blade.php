@@ -16,31 +16,38 @@
 
             {{-- Layer 1: Bagian Gambar (Kiri) --}}
             {{-- PERUBAHAN: Ukuran disesuaikan agar lebih proporsional --}}
-            <div class="relative z-10">
-                <div class="w-[650px] h-[550px] bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col">
+            {{-- <div class="relative z-10">
+                <div class="w-[850px] h-[750px] bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col">
                     
-                    {{-- Gambar pertama (atas) --}}
-                    {{-- PERUBAHAN: Tinggi diubah menjadi h-1/2 agar membagi kontainer sama rata --}}
                     <div class="h-1/2 w-full">
-                        {{-- Ganti placeholder di bawah ini dengan gambar Anda --}}
                          @if(isset($img1_url))
                             <img src="{{ $img1_url }}" alt="Gambar Tentang Kami 1" class="w-full h-full object-cover">
                         @endif
                     </div>
                     
-                    {{-- Gambar kedua (bawah) --}}
-                    {{-- PERUBAHAN: Tinggi diubah menjadi h-1/2 --}}
                     <div class="h-1/2 w-full">
-                        {{-- Ganti placeholder di bawah ini dengan gambar Anda --}}
                         @if(isset($img2_url))
                             <img src="{{ $img2_url }}" alt="Gambar Tentang Kami 2" class="w-full h-full object-cover">
                         @endif
                     </div>
                 </div>
+            </div> --}}
+
+            <div class="relative z-10">
+                <div id="image-slider-container" class="w-[700px] h-[650px] bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col">
+                    
+                    <div class="h-1/2 w-full">
+                        {{-- Beri ID unik untuk gambar pertama --}}
+                        <img id="image-slider-1" src="" alt="Gambar Tentang Kami 1" class="w-full h-full object-cover transition-opacity duration-1000 ease-in-out">
+                    </div>
+                    
+                    <div class="h-1/2 w-full">
+                        {{-- Beri ID unik untuk gambar kedua --}}
+                        <img id="image-slider-2" src="" alt="Gambar Tentang Kami 2" class="w-full h-full object-cover transition-opacity duration-1000 ease-in-out">
+                    </div>
+                </div>
             </div>
 
-            {{-- Layer 2: Bagian About Us (Kanan dengan overlap) --}}
-            {{-- PERUBAHAN: Ukuran, padding, dan struktur flexbox diubah --}}
             <div class="relative z-20 -ml-24 bg-neutral-900 rounded-3xl p-8 shadow-2xl w-[500px] h-[600px] flex flex-col">
                 
                 {{-- Judul --}}
@@ -62,3 +69,57 @@
         </div>
     </div>
 </section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // 1. Ambil data URL gambar dari PHP (Blade) ke JavaScript
+        const imageUrls = @json($imageUrls);
+
+        // 2. Target elemen gambar berdasarkan ID
+        const img1 = document.getElementById('image-slider-1');
+        const img2 = document.getElementById('image-slider-2');
+
+        // Pastikan kita punya setidaknya 2 gambar untuk dijalankan
+        if (imageUrls.length < 2) {
+            console.error('Tidak cukup gambar untuk memulai slider.');
+            // Tampilkan gambar default jika ada
+            if (imageUrls.length > 0) {
+                img1.src = imageUrls[0];
+                img2.src = imageUrls[0];
+            }
+            return;
+        }
+
+        function updateImages() {
+            // --- Logika untuk mendapatkan DUA indeks acak yang BERBEDA ---
+            let index1 = Math.floor(Math.random() * imageUrls.length);
+            let index2;
+            
+            do {
+                index2 = Math.floor(Math.random() * imageUrls.length);
+            } while (index1 === index2); // Ulangi jika indeksnya sama
+
+            // --- Efek Transisi (Fade Out) ---
+            img1.style.opacity = 0;
+            img2.style.opacity = 0;
+
+            // Tunggu transisi fade-out selesai sebelum mengganti gambar
+            setTimeout(() => {
+                // Ganti sumber gambar
+                img1.src = imageUrls[index1];
+                img2.src = imageUrls[index2];
+
+                // --- Efek Transisi (Fade In) ---
+                // Buat gambar terlihat kembali setelah sumber barunya dimuat
+                img1.onload = () => img1.style.opacity = 1;
+                img2.onload = () => img2.style.opacity = 1;
+            }, 1000); // Durasi ini harus cocok dengan `duration-1000` di kelas CSS
+        }
+
+        // Jalankan fungsi pertama kali saat halaman dimuat
+        updateImages();
+
+        // Atur interval untuk mengganti gambar setiap 5 detik (5000 milidetik)
+        setInterval(updateImages, 5000);
+    });
+</script>

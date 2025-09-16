@@ -8,10 +8,12 @@ use App\Models\ArticleNews;
 use App\Models\BannerAdvertisemenet;
 use App\Models\BannerInformation;
 use App\Models\Focuses;
+use App\Models\NilaiUtama;
 use App\Models\Partnership;
 use App\Models\People;
 use App\Models\Portfolio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
@@ -22,9 +24,16 @@ class HomeController extends Controller
         
         // Fetch Slider data
         $sliders = Slider::where('is_active', true)->get();
+        $activeSliders = Slider::where('is_active', true)->get();
+
+        // 2. Ambil path thumbnail dan ubah menjadi URL yang bisa diakses publik
+        $imageUrls = $activeSliders->pluck('thumbnail')->map(function ($path) {
+            return Storage::url($path);
+        })->toArray();
         
         // Fetch Banners
         $banners = BannerAdvertisemenet::all(); 
+        $nilais = NilaiUtama::all(); 
         
         // Fetch all articles to display on the home page (e.g., the 6 latest)
         $articles = ArticleNews::latest()->take(6)->get();
@@ -49,6 +58,6 @@ class HomeController extends Controller
                                             ->get();
         
         // Pass all data to the home view
-        return view('home', compact('roadmapItems', 'sliders', 'title', 'articles', 'banners', 'peoples', 'partnerships','focuses','portfolios', 'squareBanner', 'rectangularBanner'));
+        return view('home', compact('roadmapItems', 'sliders', 'title', 'articles', 'banners', 'peoples', 'partnerships','focuses','portfolios', 'squareBanner', 'rectangularBanner', 'nilais', 'imageUrls'));
     }
 }
