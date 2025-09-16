@@ -30,14 +30,15 @@
 
         {{-- @include('partials.roadmaps') --}}
         {{-- @include('partials._product-multiple') --}}
+        @include('partials._visi')
 
         <div id="product" class="bg-gray-100 pt-16 pb-16 sm:pb-24">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
             <div class="relative px-4">
-                <h2 class="text-3xl font-bold pb-3 text-red-600 text-center">Misi Kami</h2>
-                <div class="absolute bottom-1 left-0 w-full h-px bg-red-600"></div>
-                <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1/3 h-1.5 bg-red-600"></div>
+                <h2 class="text-5xl font-bold text-red-600 text-center">Misi Kami.</h2>
+                {{-- <div class="absolute bottom-1 left-0 w-full h-px bg-red-600"></div>
+                <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1/3 h-1.5 bg-red-600"></div> --}}
             </div>
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mt-24">
 
