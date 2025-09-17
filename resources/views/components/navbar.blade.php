@@ -18,7 +18,7 @@
 
             <!-- Desktop Main Menu -->
             <div class="hidden lg:flex items-center space-x-12 text-sm font-semibold text-gray-700 mt-14">
-                <a href="#about" class="hover:text-red-900 text-red-500 transition-colors">ABOUT</a>
+                <a href="/about" class="hover:text-red-900 text-red-500 transition-colors">ABOUT</a>
                 <a href="#focus" class="hover:text-red-900  text-red-500 transition-colors">FOCUS FIELD</a>
                 <a href="#roadmap" class="hover:text-red-900  text-red-500 transition-colors">ROADMAP</a>
                 <a href="#product" class="hover:text-red-900  text-red-500 transition-colors">PRODUCT & SERVICES</a>
@@ -31,7 +31,7 @@
                 <a href="#partner" class="px-3 hover:text-white transition-colors">ACTIVE PARTNER</a>
                 <a href="#portfolio" class="px-3 hover:text-white transition-colors">PORTFOLIO</a>
                 <a href="#news" class="px-3 hover:text-white transition-colors">NEWS & INFORMATION</a>
-                <a href="#people" class="px-3 hover:text-white transition-colors">EXPERT TEAMS</a>
+                <a href="people" class="px-3 hover:text-white transition-colors">EXPERT TEAMS</a>
                 <a href="/hubungi" class="px-3 hover:text-white transition-colors">CONTACT US</a>
             </div>
         </div>

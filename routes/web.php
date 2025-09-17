@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ArticleNewsController;
 use App\Http\Controllers\BannerAdvertisemenetController;    
 use Illuminate\Support\Facades\Route;
@@ -48,8 +49,8 @@ Route::prefix('articles')->group(function () {
 
 
 Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
+Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/slider', [SliderController::class, 'index'])->name('slider');
 Route::get('/roadmaps', [RoadmapController::class, 'index'])->name('roadmaps');
 Route::get('/partnership', [PartnershipController::class, 'index'])->name('partnership');
 Route::get('/dukungan', [DukunganController::class, 'index'])->name('dukungan');
-

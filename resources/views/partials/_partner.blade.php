@@ -38,7 +38,7 @@
         
         <div class="md:col-span-1">
             <div class="relative">
-                <h2 class="text-2xl font-bold pb-3 text-red-600 w-32">PORTFOLIO</h2>
+                <h2 class="text-2xl font-bold pb-3 text-red-600 w-32">PARTNERSHIP</h2>
                 <div class="absolute bottom-1 left-0 w-full h-0.5 bg-red-600"></div>
                 <div class="absolute bottom-0 left-0 w-1/3 h-1.5 bg-red-600"></div>
             </div>      

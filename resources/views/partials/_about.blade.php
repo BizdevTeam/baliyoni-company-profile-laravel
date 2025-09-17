@@ -1,4 +1,4 @@
-<div id="about" class="bg-white text-red-500 w-full pb-4 lg:pb-8">
+<div id="about-us" class="bg-white text-red-500 w-full pb-4 lg:pb-8">
     <!-- PERBAIKAN: Padding vertikal pada wrapper <p> dikurangi -->
     <p class="text-center text-sm font-medium pt-2 md:pt-2 lg:pt-4 pb-2">
         One Stop Solution <br>
