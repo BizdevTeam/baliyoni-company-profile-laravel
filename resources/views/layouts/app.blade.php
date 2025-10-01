@@ -34,7 +34,7 @@
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
   <div class="min-h-full">
     
-    <x-navbar></x-navbar>
+    <x-navbar-rounded></x-navbar-rounded>
 
     <main>
       <div class="">

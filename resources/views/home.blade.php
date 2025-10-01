@@ -22,7 +22,7 @@
         </div>
 
         <div class="py-24">
-            @include('partials._about-us')
+            @include('partials._about-img')
         </div>
 
         {{-- @include('partials.roadmaps') --}}
