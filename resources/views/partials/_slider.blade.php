@@ -31,13 +31,13 @@
         <!-- Konten Overlay (Judul & Tombol) -->
         <div class="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black bg-opacity-40 p-4 text-center text-white">
 
-            <div class="relative z-20 max-w-5xl">
+            {{-- <div class="relative z-20 max-w-5xl">
                 <h1 data-aos="fade-up" 
                     class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-yellow-500 text-blue-700 px-6 py-3 sm:px-10 sm:py-4">
                     UDAYANA CENTER OF <br>
                     EXCELLENT AI INNOVATION
                 </h1>
-            </div>
+            </div> --}}
         </div>
     </div>
 

@@ -1,64 +1,87 @@
-
-
-<section class="w-full bg-white">
+<section id="about" class="w-full bg-white">
     <div class="max-w-screen-xl mx-auto px-6 sm:px-6 lg:px-8">
-    {{-- <div class="text-center mb-12">
-            <div class="relative">
-                <h2 class="text-2xl font-bold pb-3 text-red-600 w-96 mx-auto">ABOUT US</h2>
-                <div class="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-full h-px bg-red-600"></div>
-                <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-48 h-1.5 bg-red-600"></div>
-            </div>              
-        </div> --}}
-    <div class="relative mx-auto max-w-screen-xl px-4 flex items-center justify-center">
-       
-        {{-- Kontainer untuk 2 layer yang tumpang tindih --}}
-        <div class="relative flex items-center">
+        <div class="relative mx-auto max-w-screen-xl px-4 flex items-center justify-center">
+            
+            {{-- Container for the two overlapping layers --}}
+            <div class="relative flex items-center">
 
-            {{-- Layer 1: Bagian Gambar (Kiri) --}}
-            {{-- PERUBAHAN: Ukuran disesuaikan agar lebih proporsional --}}
-            <div class="relative z-10">
-                <div class="w-[650px] h-[550px] bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col">
-                    
-                    {{-- Gambar pertama (atas) --}}
-                    {{-- PERUBAHAN: Tinggi diubah menjadi h-1/2 agar membagi kontainer sama rata --}}
-                    <div class="h-1/2 w-full">
-                        {{-- Ganti placeholder di bawah ini dengan gambar Anda --}}
-                         @if(isset($img1_url))
-                            <img src="{{ $img1_url }}" alt="Gambar Tentang Kami 1" class="w-full h-full object-cover">
-                        @endif
-                    </div>
-                    
-                    {{-- Gambar kedua (bawah) --}}
-                    {{-- PERUBAHAN: Tinggi diubah menjadi h-1/2 --}}
-                    <div class="h-1/2 w-full">
-                        {{-- Ganti placeholder di bawah ini dengan gambar Anda --}}
-                        @if(isset($img2_url))
-                            <img src="{{ $img2_url }}" alt="Gambar Tentang Kami 2" class="w-full h-full object-cover">
-                        @endif
+                {{-- Layer 1: Image Section (Left) --}}
+                <div class="relative z-10">
+                    <div id="image-slider-container" class="w-[700px] h-[650px] bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col">
+                        
+                        <div class="h-1/2 w-full">
+                            {{-- A unique ID for the first image --}}
+                            <img id="image-slider-1" src="" alt="About Us Image 1" class="w-full h-full object-cover">
+                        </div>
+                        
+                        <div class="h-1/2 w-full">
+                            {{-- A unique ID for the second image --}}
+                            <img id="image-slider-2" src="" alt="About Us Image 2" class="w-full h-full object-cover">
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            {{-- Layer 2: Bagian About Us (Kanan dengan overlap) --}}
-            {{-- PERUBAHAN: Ukuran, padding, dan struktur flexbox diubah --}}
-            <div class="relative z-20 -ml-24 bg-neutral-900 rounded-3xl p-8 shadow-2xl w-[500px] h-[600px] flex flex-col">
-                
-                {{-- Judul --}}
-                <h2 class="text-white text-3xl font-bold mb-4">About Us</h2>
+                {{-- Layer 2: Text Section (Right, Overlapping) --}}
+                <div class="relative z-20 -ml-24 bg-neutral-900 rounded-3xl p-8 shadow-2xl w-[500px] h-[600px] flex flex-col">
+                    
+                    {{-- Title --}}
+                    <h2 class="text-white text-3xl font-bold mb-4">About Us</h2>
 
-                {{-- Deskripsi --}}
-                {{-- PERUBAHAN: flex-grow akan mendorong tombol ke bawah --}}
-                <p class="text-gray-300 text-sm leading-relaxed mb-8 flex-grow">
-                    PT Baliyoni Saguna adalah mitra terpercaya Anda dalam solusi teknologi informasi dan komunikasi. Kami hadir sebagai One Stop IT Solution untuk membantu transformasi digital Anda.
-                </p>
+                    {{-- Description --}}
+                    {{-- CHANGE: flex-grow pushes the button to the bottom --}}
+                    <p class="text-gray-300 text-sm leading-relaxed mb-8 flex-grow">
+                        PT Baliyoni Saguna is your trusted partner in information and communication technology solutions. We are here as a One Stop IT Solution to assist in your digital transformation.
+                    </p>
 
-                {{-- Tombol Learn More --}}
-                <button class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-md text-sm font-medium transition-colors duration-200 self-start">
-                    Learn more
-                </button>
-            </div>
+                    {{-- Learn More Button --}}
+                    <button class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-md text-sm font-medium transition-colors duration-200 self-start">
+                        Learn more
+                    </button>
+                </div>
             </div>
 
         </div>
     </div>
 </section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // 1. Get the image URL data from PHP (Blade) into JavaScript
+        const imageUrls = @json($imageUrls);
+
+        // 2. Target the image elements by their ID
+        const img1 = document.getElementById('image-slider-1');
+        const img2 = document.getElementById('image-slider-2');
+
+        // Ensure we have at least 2 images to run the slider
+        if (imageUrls.length < 2) {
+            console.error('Not enough images to start the slider.');
+            // Display default images if available
+            if (imageUrls.length > 0) {
+                img1.src = imageUrls[0];
+                img2.src = imageUrls[0]; 
+            }
+            return;
+        }
+
+        function updateImages() {
+            // --- Logic to get TWO DIFFERENT random indices ---
+            let index1 = Math.floor(Math.random() * imageUrls.length);
+            let index2;
+            
+            do {
+                index2 = Math.floor(Math.random() * imageUrls.length);
+            } while (index1 === index2); // Repeat if the indices are the same
+
+            // --- Directly update the image sources without transitions ---
+            img1.src = imageUrls[index1];
+            img2.src = imageUrls[index2];
+        }
+
+        // Run the function for the first time on page load
+        updateImages();
+
+        // Set an interval to change the images every 5 seconds (5000 milliseconds)
+        setInterval(updateImages, 5000);
+    });
+</script>

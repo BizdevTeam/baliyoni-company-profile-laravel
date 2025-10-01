@@ -1,7 +1,7 @@
 <div id="focus" class="bg-white py-6 sm:py-12">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="relative px-4">
-                <h2 class="text-3xl font-bold pb-3 text-blue-800 text-center">FOCUS FIELD</h2>
+                <h2 class="text-3xl font-bold pb-3 text-blue-800 text-center">Layanan Kami.</h2>
                 <div class="absolute bottom-1 left-0 w-full h-px bg-blue-800"></div>
                 <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1/3 h-1.5 bg-blue-800"></div>
             </div>
